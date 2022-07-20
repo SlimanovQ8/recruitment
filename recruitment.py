@@ -38,6 +38,7 @@ def get_user_cv(skills):
     show_skills(get_skills())
     userSkills = get_user_skills(skills)
 
+
     cv = {"name": name, "age": age, "experience": experience, "skills": userSkills}
     print(cv)
     return cv
@@ -48,9 +49,11 @@ def check_acceptance(cv, desired_skill):
     # Check if the cv is acceptable or not and return a boolean based on that
     # Write your code here
     # cv = get_user_cv(cv)
-    print(cv["skills"])
+    print(cv["skills"][0])
     cv.values()
+   #
     if (cv.get("age") >= 25 and cv.get("age") <= 40 and cv.get("experience") > 3 and (desired_skill in cv["skills"])) :
+        print("ee")
         return True
     else:
         return False
@@ -59,12 +62,11 @@ def check_acceptance(cv, desired_skill):
 def main():
     # Write your main logic here by combining the functions above into the
     # desired outcome
-    x = []
     print("Welcome to the special recruitment program, please answer the following questions: ")
 
     getSkills = get_skills()
     CV = get_user_cv(getSkills)
-    check = check_acceptance(CV, "JavaScript")
+    check = check_acceptance(CV, "Javascript")
     name = CV.get("name")
     if check:
         print(f"You have been accepted, {name}.")
